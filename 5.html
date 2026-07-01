@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 5 - Asteria FTC Academy</title>
+  <title>Modül 5 - Asteria FTC Academy</title>
 
   <link rel="icon" href="images/blank_logo.png" >
   <link rel="apple-touch-icon" href="images/logo.png">
@@ -13,25 +13,25 @@
 </head>
 <body class="bg-zinc-950 text-white p-6">
 
-  <a href="index.html" class="text-blue-400 mb-6 inline-block">← Back to Modules</a>
+  <a href="index.html" class="text-blue-400 mb-6 inline-block">← Modüllere Geri Dön</a>
 
-  <h1 class="text-4xl font-bold mb-2">Autonomous Programming</h1>
-  <p class="text-zinc-400 mb-8">Autonomous strategies</p>
+  <h1 class="text-4xl font-bold mb-2">Autonom Programlama</h1>
+  <p class="text-zinc-400 mb-8">Autonomous stratejileri</p>
 
   <iframe width="420" height="315"
 src="https://www.youtube.com/embed/tgbNymZ7vqY">
 </iframe>
 
   <div class="bg-zinc-900 rounded-3xl p-8">
-    <h3 class="text-2xl font-semibold mb-6">Do you have any questions about this module?</h3>
+    <h3 class="text-2xl font-semibold mb-6">Bu modül hakkında sorunuz var mı?</h3>
     
-    <input type="text" id="user-name" placeholder="Your Full Name" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-5 mb-4 text-white">
-    <input type="email" id="user-mail" placeholder="Your Email Address" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-5 mb-4 text-white">
+    <input type="text" id="user-name" placeholder="Tam Adınız *" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-5 mb-4 text-white">
+    <input type="email" id="user-mail" placeholder="Email Adresiniz *" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-5 mb-4 text-white">
     
-    <textarea id="question-input" rows="5" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-5 text-white" placeholder="Write your question here..."></textarea>
+    <textarea id="question-input" rows="5" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-5 text-white" placeholder="Sorunuzu Buraya Yazın... *"></textarea>
     
     <button id="submit-btn" class="mt-6 w-full bg-blue-600 hover:bg-blue-700 py-4 rounded-2xl font-semibold transition-colors">
-      Send Question
+      Soruyu Gönder
     </button>
   </div>
 
@@ -69,7 +69,7 @@ src="https://www.youtube.com/embed/tgbNymZ7vqY">
       const question = document.getElementById('question-input').value.trim();
 
       if (!name || !mail || !question) {
-        alert("Please fill all fields");
+        alert("Lütfen Tüm Boşlukları Doldurun");
         return;
       }
 
