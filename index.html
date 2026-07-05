@@ -5,13 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Asteria FTC Academy</title>
 
-  <link rel="icon" href="images/blank_logo.png" >
+  <link rel="icon" href="images/blank_logo.png">
   <link rel="apple-touch-icon" href="images/logo.png">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- iOS ve PWA Ayarları -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Asteria FTC Academy">
+  <meta name="theme-color" content="#000000">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body class="bg-zinc-950 text-white">
+
+  <!-- Ana Ekrana Ekle Butonu -->
+<button id="installBtn" 
+        onclick="handleInstallClick()"
+        class="fixed bottom-6 right-6 bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-2xl shadow-xl flex items-center gap-2 z-50 hidden transition-all">
+  <i class="fas fa-download"></i>
+  <span>Ana Ekrana Ekle</span>
+</button>
+
+<script>
+  let deferredPrompt;
+
+  // Android + Chrome için otomatik algılama
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('installBtn').classList.remove('hidden');
+  });
+
+  function handleInstallClick() {
+    if (deferredPrompt) {
+      // Android / Chrome
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => {
+        deferredPrompt = null;
+      });
+    } else {
+      // iPhone Safari
+      alert("To add to home screen:\n\n" +
+            "1. Click Share button on bottom right\n" +
+            "2. Click more and scroll down\n" +
+            "3. Click 'Add to Home Screen' \n" +
+            "4. Click 'Add' "
+           );
+    }
+  }
+
+  // Sayfa yüklendiğinde butonu göster (iOS için yedek)
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if (!document.getElementById('installBtn').classList.contains('hidden') === false) {
+        document.getElementById('installBtn').classList.remove('hidden');
+      }
+    }, 800);
+  });
+</script>
 
   <header class="bg-zinc-900 border-b border-zinc-700">
     <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
